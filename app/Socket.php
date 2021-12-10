@@ -28,7 +28,7 @@ class Socket implements MessageComponentInterface {
                 continue;
             }
 
-            $client->send( json_encode(array("mensagem" => "Client $from->resourceId said $msg")));
+            $client->send( json_encode(array("mensagem" => $msg)));
         }
     }
 

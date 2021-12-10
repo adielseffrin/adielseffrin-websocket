@@ -28,7 +28,7 @@ class Socket implements MessageComponentInterface {
                 continue;
             }
 
-            $client->send( "Client $from->resourceId said $msg" );
+            $client->send( json_encode(array("mensagem" => "Client $from->resourceId said $msg")));
         }
     }
 
@@ -40,6 +40,7 @@ class Socket implements MessageComponentInterface {
     }
 
     public function onError(ConnectionInterface $conn, \Exception $e) {
+        echo 'Error: ' . $e->getMessage() . PHP_EOL;
         $conn->close();
     }
 }
